@@ -1,0 +1,30 @@
+{
+  "kind": "collectionType",
+  "collectionName": "agrements",
+  "info": {
+    "singularName": "agrement",
+    "pluralName": "agrements",
+    "displayName": "agrement"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "details": {
+      "type": "richtext",
+      "required": true
+    },
+    "leases": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::lease.lease",
+      "mappedBy": "agrement"
+    }
+  }
+}

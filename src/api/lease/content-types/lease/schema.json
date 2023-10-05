@@ -1,0 +1,69 @@
+{
+  "kind": "collectionType",
+  "collectionName": "leases",
+  "info": {
+    "singularName": "lease",
+    "pluralName": "leases",
+    "displayName": "lease",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "leaseId": {
+      "type": "string",
+      "unique": true,
+      "required": true
+    },
+    "startDate": {
+      "type": "date",
+      "required": true
+    },
+    "endDate": {
+      "type": "date",
+      "required": true
+    },
+    "rentAmount": {
+      "type": "decimal",
+      "required": true
+    },
+    "securityDeposit": {
+      "type": "decimal"
+    },
+    "status": {
+      "type": "enumeration",
+      "enum": [
+        "active",
+        "terminated"
+      ],
+      "required": true,
+      "default": "active"
+    },
+    "agrement": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::agrement.agrement",
+      "inversedBy": "leases"
+    },
+    "paymentType": {
+      "type": "enumeration",
+      "enum": [
+        "recurring",
+        "one_time"
+      ],
+      "required": true,
+      "default": "recurring"
+    },
+    "paymentDueDate": {
+      "type": "date"
+    },
+    "payments": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::payment.payment",
+      "mappedBy": "lease"
+    }
+  }
+}

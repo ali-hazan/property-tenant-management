@@ -1,0 +1,53 @@
+{
+  "kind": "collectionType",
+  "collectionName": "payments",
+  "info": {
+    "singularName": "payment",
+    "pluralName": "payments",
+    "displayName": "payment",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "paymentRef": {
+      "type": "string"
+    },
+    "amount": {
+      "type": "decimal",
+      "required": true
+    },
+    "date": {
+      "type": "date",
+      "required": true
+    },
+    "status": {
+      "type": "enumeration",
+      "enum": [
+        "made",
+        "failed",
+        "in_progress"
+      ],
+      "required": true
+    },
+    "paymentMethod": {
+      "type": "enumeration",
+      "enum": [
+        "card",
+        "bank_transfer",
+        "cheque",
+        "cash"
+      ],
+      "required": true,
+      "default": "cash"
+    },
+    "lease": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::lease.lease",
+      "inversedBy": "payments"
+    }
+  }
+}

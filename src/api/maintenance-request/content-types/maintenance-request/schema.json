@@ -1,0 +1,62 @@
+{
+  "kind": "collectionType",
+  "collectionName": "maintenance_requests",
+  "info": {
+    "singularName": "maintenance-request",
+    "pluralName": "maintenance-requests",
+    "displayName": "maintenance request",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "description": {
+      "type": "text",
+      "required": true
+    },
+    "status": {
+      "type": "enumeration",
+      "enum": [
+        "under_review",
+        "scheduled",
+        "in_progress",
+        "completed",
+        "rejected"
+      ],
+      "default": "under_review",
+      "required": true
+    },
+    "requestedDate": {
+      "type": "date",
+      "required": true
+    },
+    "requestedBy": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "plugin::users-permissions.user",
+      "inversedBy": "maintenance_requests"
+    },
+    "attachement": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "property": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::property.property",
+      "inversedBy": "maintenance_requests"
+    },
+    "scheduledTime": {
+      "type": "json"
+    }
+  }
+}

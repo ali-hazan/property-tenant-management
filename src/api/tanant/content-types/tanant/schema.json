@@ -1,0 +1,25 @@
+{
+  "kind": "collectionType",
+  "collectionName": "tanants",
+  "info": {
+    "singularName": "tanant",
+    "pluralName": "tanants",
+    "displayName": "tanant"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "property": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::property.property"
+    },
+    "leases": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::lease.lease"
+    }
+  }
+}
