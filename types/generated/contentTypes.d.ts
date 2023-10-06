@@ -666,12 +666,14 @@ export interface PluginUsersPermissionsUser extends Schema.CollectionType {
       'plugin::users-permissions.user',
       'oneToMany',
       'api::property.property'
-    >;
+    > &
+      Attribute.Private;
     maintenance_requests: Attribute.Relation<
       'plugin::users-permissions.user',
       'oneToMany',
       'api::maintenance-request.maintenance-request'
-    >;
+    > &
+      Attribute.Private;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<

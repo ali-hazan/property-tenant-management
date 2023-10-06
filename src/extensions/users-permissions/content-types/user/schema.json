@@ -69,35 +69,39 @@
       "type": "string"
     },
     "passport": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
       "allowedTypes": [
         "images",
         "files",
         "videos",
         "audios"
-      ],
-      "type": "media",
-      "multiple": false
+      ]
     },
     "emiratesId": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
       "allowedTypes": [
         "images",
         "files",
         "videos",
         "audios"
-      ],
-      "type": "media",
-      "multiple": false
+      ]
     },
     "properties": {
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::property.property",
+      "private": true,
       "mappedBy": "manager"
     },
     "maintenance_requests": {
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::maintenance-request.maintenance-request",
+      "private": true,
       "mappedBy": "requestedBy"
     }
   }
