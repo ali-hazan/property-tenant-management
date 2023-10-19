@@ -912,9 +912,10 @@ export interface ApiPropertyProperty extends Schema.CollectionType {
     singularName: 'property';
     pluralName: 'properties';
     displayName: 'Property';
+    description: '';
   };
   options: {
-    draftAndPublish: true;
+    draftAndPublish: false;
   };
   attributes: {
     propertyId: Attribute.String & Attribute.Required & Attribute.Unique;
@@ -941,7 +942,6 @@ export interface ApiPropertyProperty extends Schema.CollectionType {
     >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
-    publishedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<
       'api::property.property',
       'oneToOne',

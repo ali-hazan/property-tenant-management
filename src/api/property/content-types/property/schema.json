@@ -4,10 +4,11 @@
   "info": {
     "singularName": "property",
     "pluralName": "properties",
-    "displayName": "Property"
+    "displayName": "Property",
+    "description": ""
   },
   "options": {
-    "draftAndPublish": true
+    "draftAndPublish": false
   },
   "pluginOptions": {},
   "attributes": {
@@ -50,14 +51,15 @@
       "inversedBy": "properties"
     },
     "images": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
       "allowedTypes": [
         "images",
         "files",
         "videos",
         "audios"
-      ],
-      "type": "media",
-      "multiple": true
+      ]
     },
     "description": {
       "type": "richtext"
